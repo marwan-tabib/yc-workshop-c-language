@@ -1,16 +1,16 @@
 #include <stdio.h>
 void main() {
     
-   // Challenge 2 : Conversion du °C au °F
+   // Challenge 3 : Conversion du Mile au Km
 	
 	// Varaibles
-		float F ; 
+		float Metre ; 
 		
 	// Show
 		printf("Add C° value :");
-		scanf("%f" , &F);
+		scanf("%f" , &Metre);
 		
-		printf("C° Result %f" , (F - 32) / 1.8 );
+		printf("C° Result %f" , Metre * 0.000621371 );
 		
    return 0;
 }
