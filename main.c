@@ -1,33 +1,17 @@
 #include <stdio.h>
 void main() {
     
-   // Challenge 11 : CirconfÃ©rence d'un rectangle
-	// Ã‰crivez un programme pour trouver la circonfÃ©rence d'un rectangle. Prenez la longueur et la largeur du rectangle en entrÃ©e de l'utilisateur. La formule pour la circonfÃ©rence d'un rectangle = 2*(longueur + largeur).	   
+   // Challenge 13 : Affichage de la valeur octale et hexadécimale équivalente
+	// Écrivez un programme C pour afficher la valeur équivalente en octal et en hexadécimal. Entrez un nombre entier et affichez sa valeur équivalente en octal et en hexadécimal.	
+
 	// Varaibles
-	    int number , number_inv = 0 , N;
+	int octal;
 		
 	// Show			
-	    printf("Enter Number : ");
-	    scanf("%i", &number);
+	    printf("Enter hexadécimal value : ");
+	    scanf("%d", &octal);
 	    
-	    // first number
-	    N = number % 10 ; 
-	    number /= 10 ; 
-	    number_inv += N;
-	    
-	    // secound number
-	    N = number % 10 ; 
-	    number /= 10 ; 
-	    number_inv *= 10;
-	    number_inv +=N;
-	    
-	    // third number
-	    N = number % 10 ; 
-	    number /= 10 ; 
-	    number_inv *= 10;
-	    number_inv += N;
-	    
-	    printf("result : %i " , number_inv);
+	    printf("Octal resulte : %d (%o) " , octal , octal);
 	    
    return 0;
 }
