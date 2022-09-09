@@ -1,8 +1,8 @@
 #include <stdio.h>
 void main() {
     
-   // Challenge 12 : Nombre entier � trois chiffres en ordre inverse
-	// Écrivez un programme pour trouver la circonférence d'un rectangle. Prenez la longueur et la largeur du rectangle en entrée de l'utilisateur. La formule pour la circonférence d'un rectangle = 2*(longueur + largeur).	   
+   // Challenge 12 : Nombre entier à trois chiffres en ordre inverse
+	// Ã‰crivez un programme pour trouver la circonfÃ©rence d'un rectangle. Prenez la longueur et la largeur du rectangle en entrÃ©e de l'utilisateur. La formule pour la circonfÃ©rence d'un rectangle = 2*(longueur + largeur).	   
 	
 	// Varaibles
 	    int number , number_inv = 0 , N;
