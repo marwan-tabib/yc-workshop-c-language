@@ -1,17 +1,26 @@
 #include <stdio.h>
 void main() {
-    
-   // Challenge 4 : Conversion du Mile au Km
-   // Ecrivez un programme qui demande la distance en Mile et la transforme en Metre La formule :
-	
+   // Challenge 1 : Affichage Informations
+   
 	// Varaibles
-		float Mile; 
-		
-	// Show
-		printf("Add C° value :");
-		scanf("%f" , &Metre);
-		
-		printf("C° Result %f" , Mile * 1609.34 );
-		
+    char first_name[20];
+    char last_name[20];
+    int phone;
+    char gender[20];
+    
+    // Show
+	    printf("Enter Your First Name: ");
+	    scanf("%s", &first_name);
+	    getchar();
+	    printf("Enter Your Last Name: ");
+	    scanf("%s", &last_name);
+	    getchar();
+	    printf("Enter Your Phone: ");
+	    scanf("%d", &phone);  
+	    getchar();
+	    printf("Enter Your Gender: ");
+	    scanf("%s", &gender);  
+	    
+	    printf("I'm %s %s (%s) , My phone number is %d " , first_name , last_name , gender , phone);
    return 0;
 }
