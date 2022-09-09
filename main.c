@@ -2,17 +2,16 @@
 #include <math.h>
 void main() {
     
-   // Challenge 10 : Circonférence d'un cercle
-	// Écrivez un programme pour trouver la circonférence d'un cercle. Prenez le rayon du cercle en entrée de l'utilisateur. La formule pour, la circonférence du cercle = 2pr ; où r est le rayon.
-	   
+   // Challenge 11 : Circonférence d'un rectangle
+	// Écrivez un programme pour trouver la circonférence d'un rectangle. Prenez la longueur et la largeur du rectangle en entrée de l'utilisateur. La formule pour la circonférence d'un rectangle = 2*(longueur + largeur).	   
 	// Varaibles
-	    double r;
+	    double longueur , largeur;
 		
 	// Show			
-	    printf("Enter rayon value: ");
-	    scanf("%lf", &r );
+	    printf("Enter longueur and largeur : ");
+	    scanf("%lf %lf", &longueur , &largeur  );
 	    
-	    printf("Circonférence cercle  : %.2lf " , 2*3.14*r);
+	    printf("Circonférence rectangle : %.2lf " , 2*(longueur + largeur));
 	    
    return 0;
 }
