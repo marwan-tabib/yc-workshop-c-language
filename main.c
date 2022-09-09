@@ -1,17 +1,33 @@
 #include <stdio.h>
-#include <math.h>
 void main() {
     
    // Challenge 11 : Circonférence d'un rectangle
 	// Écrivez un programme pour trouver la circonférence d'un rectangle. Prenez la longueur et la largeur du rectangle en entrée de l'utilisateur. La formule pour la circonférence d'un rectangle = 2*(longueur + largeur).	   
 	// Varaibles
-	    double longueur , largeur;
+	    int number , number_inv = 0 , N;
 		
 	// Show			
-	    printf("Enter longueur and largeur : ");
-	    scanf("%lf %lf", &longueur , &largeur  );
+	    printf("Enter Number : ");
+	    scanf("%i", &number);
 	    
-	    printf("Circonférence rectangle : %.2lf " , 2*(longueur + largeur));
+	    // first number
+	    N = number % 10 ; 
+	    number /= 10 ; 
+	    number_inv += N;
+	    
+	    // secound number
+	    N = number % 10 ; 
+	    number /= 10 ; 
+	    number_inv *= 10;
+	    number_inv +=N;
+	    
+	    // third number
+	    N = number % 10 ; 
+	    number /= 10 ; 
+	    number_inv *= 10;
+	    number_inv += N;
+	    
+	    printf("result : %i " , number_inv);
 	    
    return 0;
 }
