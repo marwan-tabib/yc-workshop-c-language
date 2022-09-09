@@ -1,17 +1,28 @@
 #include <stdio.h>
 void main() {
     
-   // Challenge 4 : Conversion du Mile au Km
-   // Ecrivez un programme qui demande la distance en Mile et la transforme en Metre La formule :
+   // Challenge 5 : Affichage Température
+   // Ecrivez un programme qui demande la température en Fahrenheit et la transforme en degré Celsius et affiche la sensation ressentie (tr�s froid, froid, chaud, très chaud) La formule :
 	
 	// Varaibles
-		float Mile; 
+		float F ; 
 		
 	// Show
-		printf("Add Mile value :");
-		scanf("%f" , &Mile);
+		printf("Add F� value :");
+		scanf("%f" , &F );
 		
-		printf("Metre Result %f" , Mile * 1609.34 );
+		if (F < 18)
+			{
+			  printf ("Tr�s  froid !");
+			}
+		if (F >= 18)
+			{
+				if (F >= 35){
+						if (F >= 45){ printf ("Tr�s chaud !"); }
+					 	else { printf ("Chaud"); }
+					}
+				else { printf ("Froid"); }
+			}
 		
    return 0;
 }
