@@ -16,8 +16,8 @@ void main() {
 		m = (a + b) / 2;
 	
 		fa = pow(a,3) + 12 * pow(a,2) + 1;
-		fm = pow(a,3) + 12 * pow(a,2) + 1;
-		fb = pow(a,3) + 12 * pow(a,2) + 1;
+		fm = pow(m,3) + 12 * pow(m,2) + 1;
+		fb = pow(b,3) + 12 * pow(b,2) + 1;
 		
 		if(fa * fm < 0){
 			b = m ;
