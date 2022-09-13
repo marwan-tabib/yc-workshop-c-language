@@ -3,7 +3,7 @@
 void main() {
     
    // Challenge 8
-	// Écrire un programme C qui utilise le principe de dichotomie pour trouver la solution de l'équation x3+12x2+1=0 dans l'intervalle [-15,-10] avec une précision de 0,00001.
+	// Ã‰crire un programme C qui utilise le principe de dichotomie pour trouver la solution de l'Ã©quation x3+12x2+1=0 dans l'intervalle [-15,-10] avec une prÃ©cision de 0,00001.
 	
 	// Varaibles
 	    double a = -15 , b = -10 , m , fa , fb , fm;
