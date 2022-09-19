@@ -25,28 +25,28 @@
 				switch(zone){
 					case 1 : {
 		    			printf("\n\n-- Choisi --");
-			    		printf("\n1 - Aller au menu général ->");
+			    		printf("\n1 - Aller au menu general ->");
 			    		printf("\n2 - Retourner ->");
-			    		printf("\n Entrer un numéro : ");
+			    		printf("\n Entrer un numero : ");
 			    		scanf("%d" , &chose);
-						chose == 1 ? intro() : chose == 2 ? productSection() : printf("Veuillez réessayer");
+						chose == 1 ? intro() : chose == 2 ? productSection() : printf("Veuillez reessayer");
 						break;
 					}
 					case 2 : {
 		    			printf("\n\n-- Choisi --");
-			    		printf("\n1 - Aller au menu général ->");
-			    		printf("\n Entrer un numéro : ");
+			    		printf("\n1 - Aller au menu general ->");
+			    		printf("\n Entrer un numero : ");
 			    		scanf("%d" , &chose);
-						chose == 1 ? intro() : printf("Veuillez réessayer");
+						chose == 1 ? intro() : printf("Veuillez reessayer");
 						break;
 					}
 					case 3 : {
 		    			printf("\n\n-- Choisi --");
-			    		printf("\n1 - Aller au menu général ->");
+			    		printf("\n1 - Aller au menu general ->");
 			    		printf("\n2 - Retourner ->");
 			    		printf("\n Entrer un numbre : ");
 			    		scanf("%d" , &chose);
-						chose == 1 ? intro() : chose == 2 ? stockSection() : printf("Veuillez réessayer");
+						chose == 1 ? intro() : chose == 2 ? stockSection() : printf("Veuillez reessayer");
 						break;
 					}
 					default : system("exit");
@@ -71,7 +71,7 @@
 			ajouterProduit(bool multi , produit *T, int *size){
 				system("cls");
 				// Variables
-	    			int n=1 , i , z = *(size);
+	    			int n=1 , z = *(size);
 					T[z].code = z + 1;						
 				// Show
 				
@@ -112,15 +112,15 @@
 				system("cls");
 				
 				// Variables
-	    			int i , z = *(size) ;
+	    			int z = *(size) ;
 	    		
 	    		// Show
 					printf("***		Section de les produits -> List tous produits		***");
 					printf("\n Total Produits : %d .\n" , z);
 	    			
 					for(i=0; i<z ; i++){
-	    				T[i].ttc = T[i].prix + T[i].prix * 0.15;
-						printf("\nId: %d | Nome: %s | Quantite: %d | Prix: %.2f DH | TTC : %d \n" , T[i].code , T[i].nome , T[i].quantite , T[i].prix , T[i].ttc);
+	    				T[i].ttc = T[i].prix + (T[i].prix * 0.15);
+						printf("\nId: %d | Nome: %s | Quantite: %d | Prix: %.2f DH | TTC : %f \n" , T[i].code , T[i].nome , T[i].quantite , T[i].prix , T[i].ttc);
 					}
 					if(back == 1){
 						delay(1);
@@ -133,7 +133,7 @@
 				system("cls");
 				// 0 = -- | 1 = ++ 
 				// Variables
-					int i , z = *(size) , n , check;
+					int z = *(size) , n , check;
 				
 				// Show 
 					if(z==0){
@@ -155,7 +155,7 @@
 			void rechercheProduit(produit *T , int *size){
 				system("cls");
 				// Variables
-					int i , z = *(size) , n , check;
+					int z = *(size) , n , check;
 				
 				// Show 
 					if(z==0){
@@ -163,16 +163,16 @@
 						goBack(1);
 					}else{
 						printf(" 1  - Rechercher avec le code : \n");
-						printf(" 2  - Recherche avec quantité : \n ");
+						printf(" 2  - Recherche avec quantite : \n ");
 						
-			        	printf("\n Ajouter un numéro [0 - Retour]: ");
+			        	printf("\n Ajouter un numero [0 - Retour]: ");
 						scanf("%d" , &chose);
 						
 						switch(chose){
 							case 0 : productSection();
 							case 1 : {
 								system("cls");
-								printf("Ajouter le code produit à la recherche : ");
+								printf("Ajouter le code produit a la recherche : ");
 								scanf("%d" , &n);
 								int m = n;
 								n--;
@@ -182,21 +182,21 @@
 									goBack(1);
 								}
 								else {
-									printf("Pas de résultat, s'il vous plaît encore trois...");
+									printf("Pas de resultat, s'il vous plaît encore trois...");
 									goBack(1);
 								}
 								break;
 							}
 							case 2 : {
 								system("cls");
-								printf("Ajouter la valeur de la quantité de produit: ");
+								printf("Ajouter la valeur de la quantite de produit: ");
 								scanf("%d" , &n);
 								printf("%d" , z);
 								for(i=0 ; i < z ; i++){
 									if(n == T[i].quantite){
 										printf("\nId: %d | Nome: %s | Quantite: %d | Prix: %.2f DH | TTC : %f \n" , T[i].code , T[i].nome , T[i].quantite , T[i].prix , T[i].ttc);
 									}else {
-										printf("Pas de résultat, s'il vous plaît encore trois...");
+										printf("Pas de resultat, s'il vous plaît encore trois...");
 										goBack(1);
 									}
 								}
@@ -236,7 +236,7 @@
 			void supprimerProduit(produit *T , int *size){
 				system("cls");
 				// Variables
-					int i , z = *(size) , n , check;
+					int z = *(size) , n , check;
 				
 				// Show 
 					if(z==0){
@@ -267,7 +267,11 @@
 					int z = *(size) , total = 0 , moyenne = 0 , tl_quantite = 0 , min = T[0].prix , max = T[0].prix;
 					date d = getDate();
 									
-				printf("\nDate à jour est : %d/%d/%d \n" , d.day , d.month , d.year);
+				printf("\nDate a jour est : %d/%d/%d \n" , d.day , d.month , d.year);
+				if(z == 0){
+					printf("\n* Aucun produit, ajoutez d'abord un produit !");
+					goBack(1);	
+				}
 				for(i = 0 ; i < z ; i++){
 					if(T[i].d.day == d.day){
 						
@@ -282,14 +286,8 @@
 					}
 				}
 				
-				if(T[i].d.day == d.day){
 					moyenne = (total / tl_quantite) ;
-					
 					printf("\n\n Total : %d DH | Moyenne : %d | Max : %d | Min : %d " , total , moyenne , max , min);
-				}else{
-					printf("* Aucun produit, ajoutez d'abord un produit !");
-				}
-
 				
 				delay(1);
 				goBack(1);				
@@ -307,7 +305,7 @@
 				printf("[ 4 ]  - Acheter produit : \n");
 				printf("[ 5 ]  - Rechercher les produits :\n");
 				
-	        	printf("\n Ajouter un numéro [0 - Retour] : ");
+	        	printf("\n Ajouter un numero [0 - Retour] : ");
 				scanf("%d" , &chose);
 				
 				switch(chose){
@@ -335,7 +333,7 @@
 				printf("[ 1 ]  - Etat du stock:\n");
 				printf("[ 2 ]  - Alimenter le stock:\n");
 			
-	        	printf("\n Ajouter un numéro [0 - Retour]: ");
+	        	printf("\n Ajouter un numero [0 - Retour]: ");
 				scanf("%d" , &chose);
 				
 				switch(chose){
@@ -363,7 +361,7 @@
 				printf("[- 3 -]  - Supprimer les produits:\n");
 				printf("[- 4 -]  - Statistique de vente:\n");
 				
-		        printf("\n Ajouter un numéro [0 - Retour]: ");
+		        printf("\n Ajouter un numero [0 - Retour]: ");
 				scanf("%d",&chose);
 			
 				switch(chose){

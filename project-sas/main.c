@@ -13,13 +13,7 @@ void main(){
 	
 	// Projet Fin SAS
     // l’application de gestion de pharmacie  est une application console. Qui a pour but de gérer les produits pharmaceutiques (ajouter, rechercher, supprimer et afficher un produit …)
-    
-	// Variables 
-        int chose;
 		
 	// Show 
 		intro();
-	
-		
-		
 }
