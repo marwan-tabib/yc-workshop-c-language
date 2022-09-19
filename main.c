@@ -5,8 +5,6 @@
 #include <stdbool.h>
 // Structs
 	#include"includes/structs.c"
-// Variables
-	#include"includes/variables.c"
 // Functions
 	#include"includes/functions.c"
  

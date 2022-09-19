@@ -1,3 +1,11 @@
+	//////---- Globale Variables ----//////
+	
+		int chose , i , s = 0;
+		produit res[10];
+		
+	//////---- 	End Variables ----/////
+	
+	
 	//////---- Plugins ----//////
 		// Delay
 			void delay(int number_of_seconds)
@@ -9,8 +17,7 @@
 			    clock_t start_time = clock();
 			 
 			    // looping till required time is not achieved
-			    while (clock() < start_time + milli_seconds)
-			        ;
+			    while (clock() < start_time + milli_seconds);
 			}
 		// Go Back
 			void goBack(int zone){
@@ -22,7 +29,7 @@
 			    		printf("\n2 - Go back ->");
 			    		printf("\n entrer un numbre : ");
 			    		scanf("%d" , &chose);
-						chose == 1 ? intro() : chose == 2 ? produitZone() : printf("please tree again");
+						chose == 1 ? intro() : chose == 2 ? productSection() : printf("please tree again");
 						break;
 					}
 					case 2 : {
@@ -31,6 +38,15 @@
 			    		printf("\n entrer un numbre : ");
 			    		scanf("%d" , &chose);
 						chose == 1 ? intro() : printf("please tree again");
+						break;
+					}
+					case 3 : {
+		    			printf("\n\n-- Chose --");
+			    		printf("\n1 - Go to genrale menu ->");
+			    		printf("\n2 - Go back ->");
+			    		printf("\n entrer un numbre : ");
+			    		scanf("%d" , &chose);
+						chose == 1 ? intro() : chose == 2 ? stockSection() : printf("please tree again");
 						break;
 					}
 					default : system("exit");
@@ -45,7 +61,6 @@
 				d.month = tm.tm_mon + 1;
 				d.year = tm.tm_year + 1900;
 				return d;
-			  
 			}
 	//////---- End Plugins ----/////
 	
@@ -113,25 +128,28 @@
 					}
 					
 			}
-    	// Buy product
-    		void acheterProduit(produit *T , int *size){
+    	// Market Place
+    		void marketPlace(bool status , produit *T , int *size){
 				system("cls");
+				// 0 = -- | 1 = ++ 
 				// Variables
 					int i , z = *(size) , n , check;
 				
 				// Show 
 					if(z==0){
 						printf("No Product , first add product !");
-						goBack(1);
+						status == 0 ? goBack(1) : goBack(3);
 					}else{
 						listTousProduits(0 , T , size);
-						printf("Enter product code to buy : ");
+						
+						printf("Enter product code : ");
 						scanf("%d" , &n);
-						n--;T[n].quantite--;
+						n--;
+						status == 0 ? T[n].quantite-- : T[n].quantite++ ;
 						T[n].d = getDate();
 					}
 					delay(1);
-					goBack(1);
+					status == 0 ? goBack(1) : goBack(3);
 			}
 		// Recherche Produit
 			void rechercheProduit(produit *T , int *size){
@@ -151,7 +169,7 @@
 						scanf("%d" , &chose);
 						
 						switch(chose){
-							case 0 : produitZone();
+							case 0 : productSection();
 							case 1 : {
 								system("cls");
 								printf("Enter product code to search : ");
@@ -192,24 +210,72 @@
 					delay(1);
 					goBack(1);
 			}
+		// Etat du stock
+			void etatDuStock(produit *T , int *size){
+				system("cls");
+				// variables
+					int z = *(size);
+					
+					for(i=0 ; i < z ; i++){
+						if(T[i].quantite < 3){
+							printf("\nId: %d | Nome: %s | Quantite: %d | Prix: %.2f DH | TTC : %f \n" , T[i].code , T[i].nome , T[i].quantite , T[i].prix , T[i].ttc);
+						}
+					}
+					delay(1);
+					goBack(3);
+			}
+		// Alimenter Le Stock
+			void alimenterLeStock(produit *T , int *size){
+				system("cls");
+				// variables
+					int z = *(size);
+				// Show
+					marketPlace(1 , res , &s);
+			}
+		// Supprimer Produit
+			void supprimerProduit(produit *T , int *size){
+				system("cls");
+				// Variables
+					int i , z = *(size) , n , check;
+				
+				// Show 
+					if(z==0){
+						printf("No Product , first add product !");
+						goBack(2);
+					}else{
+						listTousProduits(0 , T , size);
+						
+						printf("Enter product code : ");
+						scanf("%d" , &n);
+						n--;
+						T[n].d = getDate();
+						for(i = n ; i < z ; i++){
+							T[i].code 	  = T[i+1].code;
+							T[i].d 		  = T[i+1].d;
+//							T[i].nome 	  = T[i+1].nome;
+							T[i].prix 	  = T[i+1].prix;
+							T[i].quantite = T[i+1].quantite;
+							T[i].ttc 	  = T[i+1].ttc;
+						}
+						(*size)--;
+					}
+					delay(1);
+					goBack(2);
+			}
 	//////---- End Functions ----//////
 
 	//////---- Sections ----//////
-    	produitZone(){
+    	productSection(){
     		system("cls");
-
-    		// Variables
-	    		produit produit;
-	    		
 	    	// Shows
-		    	printf("***		Ajouter un nouveau produit		***");
-				printf("\n[ 1 ]  - Ajouter un nouveau produit:\n");
-				printf("[ 2 ]  - Ajouter plusieurs nouveaux produits:\n");
-				printf("[ 3 ]  - Lister tous les produits:\n");
-				printf("[ 4 ]  - Acheter produit:\n");
-				printf("[ 5 ]  - Rechercher les produits Par:\n");
+		    	printf("***		Product Section		***\n");
+				printf("[ 1 ]  - To Add One Product : \n");
+				printf("[ 2 ]  - To Add Multiple Products : \n");
+				printf("[ 3 ]  - To Show All Products : \n");
+				printf("[ 4 ]  - To Buy Product : \n");
+				printf("[ 5 ]  - To Search Product:\n");
 				
-	        	printf("\n entrer un numbre [0 - Go back]: ");
+	        	printf("\n Add A Number [0 - Go back]: ");
 				scanf("%d" , &chose);
 				
 				switch(chose){
@@ -221,12 +287,35 @@
 						break;
 					case 3: listTousProduits(1 , res , &s);
 						break;
-					case 4: acheterProduit(res , &s);
+					case 4: marketPlace(0 , res , &s);
 						break;
 					case 5: rechercheProduit(res , &s);
 						break;
-					default: produitZone();
+					default: productSection();
 				}
+		}
+		// Stock Section
+		stockSection(){
+			system("cls");
+			
+			// Show
+				printf("***		Stock Section		***\n");
+				printf("[ 1 ]  - Etat du stock:\n");
+				printf("[ 2 ]  - Alimenter le stock:\n");
+			
+	        	printf("\n entrer un numbre [0 - Go back]: ");
+				scanf("%d" , &chose);
+				
+				switch(chose){
+					case 0: intro();
+						break;
+					case 1: etatDuStock(res , &s);
+						break;
+					case 2: alimenterLeStock(res , &s);
+						break;
+					default : stockSection;
+				}
+				
 		}
 	//////---- End Sections ----//////
 	
@@ -239,9 +328,8 @@
 			// shows
 				printf("|*/*/*/*/*/*| Gestion de Pharmacie |*/*/*/*/*/*|\n\n");
 				printf("[- 1 -]  - Section de les produits:\n");
-				printf("[- 4 -]  - Etat du stock:\n");
-				printf("[- 5 -]  - Alimenter le stock:\n");
-				printf("[- 6 -]  - Supprimer les produits par:\n");
+				printf("[- 2 -]  - Section de Stock:\n");
+				printf("[- 3 -]  - Supprimer les produits par:\n");
 				printf("[- 7 -]  - Statistique de vente:\n");
 				
 		        printf("\n entrer un numbre [0 to exit] : ");
@@ -250,7 +338,11 @@
 				switch(chose){
 					case 0 : system("exit");
 							break;
-					case 1 : produitZone();
+					case 1 : productSection();
+							break;
+					case 2 : stockSection();
+							break;
+					case 3 : supprimerProduit(res , &s);
 							break;
 					default : intro();
 				} 
