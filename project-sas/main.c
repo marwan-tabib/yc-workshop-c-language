@@ -3,6 +3,7 @@
 #include<math.h>
 #include <time.h>
 #include <stdbool.h>
+#include <string.h>
 // Structs
 	#include"includes/structs.c"
 // Functions

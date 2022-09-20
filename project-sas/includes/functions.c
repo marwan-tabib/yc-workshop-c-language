@@ -128,6 +128,54 @@
 					}
 					
 			}
+		// List Product With
+			void listTousProuduitsavec(produit *T , int *size){
+				system("cls");
+				printf("* ajouter un numero : \n");
+				printf("[ 1 ]  - List tous produit prix : \n");
+				printf("[ 2 ]  - List tous produit nom : \n");
+				
+			    printf("\n Ajouter un numero [0 - Retour]: ");
+				scanf("%d" , &chose);
+				
+				produit p;
+				int j,z = *size;
+				
+				switch(chose){
+					case 0 : productSection();
+					case 1 : {
+						system("cls");
+						printf("***		Section de les produits -> List tous produit prix");
+						for(i = 0 ; i < z ; i++){
+							for(j = i+1 ; j < z ; j++){
+							   if(T[i].prix>T[j].prix){
+							   	  p = T[i];
+							   	  T[i] = T[j];
+							   	  T[j] = p;
+							   }
+						     }
+						}
+						listTousProduits(1 , res , &s);
+						break;
+					}
+					case 2 : {	
+						system("cls");
+						printf("***		Section de les produits -> List tous produit nom");
+						for(i = 0 ; i < z ; i++){
+							for(j = i+1 ; j < z ; j++){
+							   if(strcmp(T[i].nome,T[j].nome)==1){
+							   	  p = T[i];
+							   	  T[i] = T[j];
+							   	  T[j] = p;
+							   }
+						     }
+						}
+						listTousProduits(1 , res , &s);
+						break;
+					}
+					default : listTousProuduitsavec(res , &s);
+				}
+			}
     	// Market Place
     		void marketPlace(bool status , produit *T , int *size){
 				system("cls");
@@ -315,7 +363,7 @@
 						break;
 					case 2: ajouterProduit(1 , res , &s);
 						break;
-					case 3: listTousProduits(1 , res , &s);
+					case 3: listTousProuduitsavec(res , &s);
 						break;
 					case 4: marketPlace(0 , res , &s);
 						break;
